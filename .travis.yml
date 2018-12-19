@@ -14,7 +14,7 @@ deploy:
   api_key:
     secure: IjALbCxly7OdEWmLxWIjW+v4UTDjksgo1z6qVHNvfNJFqgLX+pq+VWJfvKA95nTSTGZj+mOugLXAcWqmO73oGnuNueVARG+mUP6r0EHrNaR6EZmQg5LbtOEuDiy/95RIvNPW+qmOHv9sOyXDYiBg1axOiThZeoBYsbC9ag/h8e3N6wseAfjcFazvE4J6LZbAanSTYVRe5JB2UpvdfeHJdSaTiy4k9/aALt+/JhUfpTJQldxZ1URW3JUTy3jHR2deq6WAFyR+CpTSKQRgYKOHk/xfEBe32o/kXP+MKfqQvVcahCZgx4+Dqo9HUzPzZAnD+Jzjkj33NwGyW6Ky4oiZu9InM3Zsp+gqBytuItMXIPAubWj2z9ZMzs7wEdmUU0D549zF33KEHjDqlHHbUTtmR39Oxdj+21yPbSQ/3ERMlHeNCxUrxhxU5tq/gzvEbCsj44OWyMgOvHN67qelB0SEqD4faxg8XBG54TMrrQYEAoJio2HxA+xHR1GEJhf8BXNayAFAW2JxdFX9CJBFKX8GpJRkE9NrJK/3M83ineM0PNYxIaQ3vaWncmr8PT1erRD/TFpHzuC5zv9LYyynQtjg0x8JvoEDQvLbZUJXe1uP6g2nVUsjfv5sYuPLMLuNmPGCDS6h6yoSHSbhab9Y1yWFkUTVLgToWgK0GlkytHfI7Qw=
   app:
-    develop: codecov-test
+    development: codecov-test
     master: codecov-production
   on:
     repo: mayankgandhigemsessence/codecov_test
