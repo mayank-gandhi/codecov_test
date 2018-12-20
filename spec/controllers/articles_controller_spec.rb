@@ -37,12 +37,33 @@ describe ArticlesController, type: :controller do
     it "assigns @article" do
       get :show, params: { id: @articles.first.id }
       expect(assigns[:article]).to eq(@articles.first)
-      expect(response).to render_template("show")
     end
 
     it "has a 200 status code" do
       get :show, params: { id: @articles.first.id }
       expect(response.status).to eq(200)
+    end
+  end
+
+  describe 'get new' do
+    it "render the new template" do
+      get :new
+      expect(response).to render_template("new")
+    end
+
+    it "assigns @article" do
+      get :new
+      expect(assigns[:article]).to be_a_new(Article)
+    end
+
+    it "has a 200 status code" do
+      get :new
+      expect(response.status).to eq(200)
+    end
+
+    it "for testing this should fail" do
+      get :new
+      expect(response.status).to_not eq(200)
     end
   end
 end
