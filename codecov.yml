@@ -6,10 +6,10 @@ coverage:
     project:
       default: off
       backend:
-        target: 50%
+        target: 70%
         flags: backend
       models:
-        target: 90%
+        target: 100%
         flags: models
 
 flags:
@@ -20,7 +20,7 @@ flags:
       - app/controller/
   models:
     paths:
-      - app/views/
+      - app/models/
   tests:
     paths:
       - spec/
