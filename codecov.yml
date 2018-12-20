@@ -17,7 +17,7 @@ flags:
   backend:
     # only include files in the backend folder
     paths:
-      - app/controller/
+      - app/controllers/
   models:
     paths:
       - app/models/
