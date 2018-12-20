@@ -6,7 +6,7 @@ before_script:
 - bundle exec rake db:migrate
 script:
 - bundle exec rspec
-- bash <(curl -s https://codecov.io/bash) -c -F backend
+- bash <(curl -s https://codecov.io/bash)
 services:
 - postgresql
 notifications:
