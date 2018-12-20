@@ -1,0 +1,26 @@
+coverage:
+  range: 70..100
+  round: down
+  precision: 5
+  status:
+    project:
+      default: off
+      backend:
+        target: 50%
+        flags: backend
+      models:
+        target: 90%
+        flags: models
+
+flags:
+  # filter the folder(s) you wish to measure by that flag
+  backend:
+    # only include files in the backend folder
+    paths:
+      - app/controller/
+  models:
+    paths:
+      - app/views/
+  tests:
+    paths:
+      - spec/
