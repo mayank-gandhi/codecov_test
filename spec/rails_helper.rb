@@ -10,11 +10,20 @@ require 'factory_bot_rails'
 require 'shoulda/matchers'
 
 require 'simplecov'
-require 'coveralls'
+# require 'coveralls'
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
-SimpleCov.start do
-  add_filter 'app/secrets'
+# SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+# SimpleCov.start do
+#   add_filter 'app/secrets'
+# end
+
+require 'codecov'
+
+SimpleCov.start
+
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
 
 # Add additional requires below this line. Rails is not loaded until this point!
