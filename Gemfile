@@ -48,9 +48,7 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'cucumber-rails', require: false
-  gem 'database_cleaner'
-  # gem 'coveralls', require: false
-  
+  gem 'database_cleaner'  
   # Code coverage tools incentivize developers to write tests and increase coverage
   gem 'codecov', :require => false
 end
