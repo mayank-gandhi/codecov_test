@@ -60,10 +60,5 @@ describe ArticlesController, type: :controller do
       get :new
       expect(response.status).to eq(200)
     end
-
-    it "for testing this should fail" do
-      get :new
-      expect(response.status).to_not eq(200)
-    end
   end
 end
