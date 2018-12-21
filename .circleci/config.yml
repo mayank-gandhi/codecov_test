@@ -64,10 +64,16 @@ jobs: # a collection of steps
       - run: bin/rails db:migrate
 
       # Run Rspecs
-      - run: CI=true bundle exec rspec spec --format progress -o $TEST_REPORT_PATH/coverage.xml
-
+      - run: bundle exec rspec spec --format progress -o $TEST_REPORT_PATH/coverage.xml
       # Upload reports
+      - run: bash <(curl -s https://codecov.io/bash)
+      
+      # Run Rspecs then Upload reports for each flag
+      - run: bundle exec rspec spec/controllers --format progress -o $TEST_REPORT_PATH/coverage.xml
       - run: bash <(curl -s https://codecov.io/bash) -F controllers
+      - run: bundle exec rspec spec/models --format progress -o $TEST_REPORT_PATH/coverage.xml
       - run: bash <(curl -s https://codecov.io/bash) -F models
+      - run: bundle exec rspec spec/helpers --format progress -o $TEST_REPORT_PATH/coverage.xml
       - run: bash <(curl -s https://codecov.io/bash) -F helpers
+      - run: bundle exec rspec spec/jobs --format progress -o $TEST_REPORT_PATH/coverage.xml
       - run: bash <(curl -s https://codecov.io/bash) -F jobs
