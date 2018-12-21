@@ -1,39 +1,42 @@
 codecov:
-  branch: development
+  branch: master
 
 coverage:
-  range: 60..100
+  range: 80..100
   round: down
   precision: 5
   status:
     project:
-      default: off
-      backend:
-        target: 60%
-        flags: backend
+      default: on
+      controllers:
+        target: 90%
+        flags: controllers_flag
       models:
         target: 100%
-        flags: models
-      tests:
+        flags: models_flag
+      jobs:
         target: 100%
-        flags: tests
+        flags: jobs_flag
+      helpers:
+        target: 100%
+        flags: helpers_flag
 
 flags:
-  # filter the folder(s) you wish to measure by that flag
-  backend:
-    # only include files in the backend folder
-    joined: false
+  controllers_flag:
     paths:
       - app/controllers/
-      - app/models/
-      - spec/
-  models:
-    joined: false
+  models_flag:
     paths:
       - app/models/
+  views_flag:
+    paths:
+      - app/views/
+  jobs_flag:
+    paths:
       - app/jobs/
+  helpers_flag:
+    paths:
       - app/helpers/
   tests:
-    joined: false
     paths:
       - spec/
