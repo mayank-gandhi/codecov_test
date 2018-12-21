@@ -156,20 +156,20 @@ describe ArticlesController, type: :controller do
     end
   end
 
-  describe 'Delete @article' do
-    it 'should redirect to articles path' do
-      delete :destroy, params: { id: @articles.first.id }
-      expect(response).to redirect_to articles_path
-    end
+  # describe 'Delete @article' do
+  #   it 'should redirect to articles path' do
+  #     delete :destroy, params: { id: @articles.first.id }
+  #     expect(response).to redirect_to articles_path
+  #   end
 
-    it 'has status code 302' do
-      delete :destroy, params: { id: @articles.first.id }
-      expect(response.status).to eq(302)
-    end
+  #   it 'has status code 302' do
+  #     delete :destroy, params: { id: @articles.first.id }
+  #     expect(response.status).to eq(302)
+  #   end
 
-    it 'should delete article' do
-      delete :destroy, params: { id: @articles.first.id }
-      expect{ @articles.first.reload }.to raise_error(ActiveRecord::RecordNotFound)
-    end
-  end
+  #   it 'should delete article' do
+  #     delete :destroy, params: { id: @articles.first.id }
+  #     expect{ @articles.first.reload }.to raise_error(ActiveRecord::RecordNotFound)
+  #   end
+  # end
 end

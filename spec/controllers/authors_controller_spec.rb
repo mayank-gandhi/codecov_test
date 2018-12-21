@@ -45,39 +45,39 @@ describe AuthorsController, type: :controller do
     end
   end
 
-  # describe 'get new' do
-  #   it "render the new template" do
-  #     get :new
-  #     expect(response).to render_template("new")
-  #   end
+  describe 'get new' do
+    it "render the new template" do
+      get :new
+      expect(response).to render_template("new")
+    end
 
-  #   it "assigns @author" do
-  #     get :new
-  #     expect(assigns[:author]).to be_a_new(Author)
-  #   end
+    it "assigns @author" do
+      get :new
+      expect(assigns[:author]).to be_a_new(Author)
+    end
 
-  #   it "has a 200 status code" do
-  #     get :new
-  #     expect(response.status).to eq(200)
-  #   end
-  # end
+    it "has a 200 status code" do
+      get :new
+      expect(response.status).to eq(200)
+    end
+  end
 
-  # describe 'get edit' do
-  #   it "render the edit template" do
-  #     get :edit, params: { id: @authors.first.id }
-  #     expect(response).to render_template("edit")
-  #   end
+  describe 'get edit' do
+    it "render the edit template" do
+      get :edit, params: { id: @authors.first.id }
+      expect(response).to render_template("edit")
+    end
 
-  #   it "assigns @author" do
-  #     get :edit, params: { id: @authors.first.id }
-  #     expect(assigns[:author]).to eq(@authors.first)
-  #   end
+    it "assigns @author" do
+      get :edit, params: { id: @authors.first.id }
+      expect(assigns[:author]).to eq(@authors.first)
+    end
 
-  #   it "has a 200 status code" do
-  #     get :edit, params: { id: @authors.first.id }
-  #     expect(response.status).to eq(200)
-  #   end
-  # end
+    it "has a 200 status code" do
+      get :edit, params: { id: @authors.first.id }
+      expect(response.status).to eq(200)
+    end
+  end
 
   # describe 'post create' do
   #   context 'with valid data' do
