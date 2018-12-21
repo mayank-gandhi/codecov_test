@@ -104,25 +104,25 @@ describe AuthorsController, type: :controller do
       end
     end
 
-  #   context 'with invalid data' do
-  #     it "should not change count" do
-  #       expect {
-  #         post :create, params: { author: attributes_for(:author, name: '')}
-  #       }.to change(Author,:count).by(0)
-  #     end
+    context 'with invalid data' do
+      it "should not change count" do
+        expect {
+          post :create, params: { author: attributes_for(:author, name: '')}
+        }.to change(Author,:count).by(0)
+      end
 
-  #     it 'should render new template with error message' do
-  #       post :create, params: { author: attributes_for(:author, name: '')}
-  #       expect(response).to render_template("new")
-  #       expect(assigns[:author].errors.messages[:name].present?).to be true
-  #     end
+      it 'should render new template with error message' do
+        post :create, params: { author: attributes_for(:author, name: '')}
+        expect(response).to render_template("new")
+        expect(assigns[:author].errors.messages[:name].present?).to be true
+      end
 
-  #     it "has a 200 status code" do
-  #       post :create, params: { author: attributes_for(:author, name: '')}
-  #       expect(response.status).to eq(200)
-  #     end
-  #   end
-  # end
+      it "has a 200 status code" do
+        post :create, params: { author: attributes_for(:author, name: '')}
+        expect(response.status).to eq(200)
+      end
+    end
+  end
 
   # describe 'Update @author' do
   #   context 'with valid data' do
