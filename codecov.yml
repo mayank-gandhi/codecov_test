@@ -9,7 +9,7 @@ coverage:
     project:
       default: off
       backend:
-        target: 60%
+        target: 90%
         flags: backend
       models:
         target: 100%
