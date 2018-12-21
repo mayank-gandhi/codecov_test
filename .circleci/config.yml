@@ -64,9 +64,10 @@ jobs: # a collection of steps
       - run: bin/rails db:migrate
 
       # Run Rspecs
-      - run: CI=true bundle exec rspec spec --format progress -o $TEST_REPORT_PATH/rspec.xml
-  
-      # Save test results for timing analysis
-      - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-          path: test_results
-      # See https://circleci.com/docs/2.0/deployment-integrations/ for example deploy configs
+      - run: CI=true bundle exec rspec spec --format progress -o $TEST_REPORT_PATH/coverage.xml
+
+      # Upload reports
+      - run: bash <(curl -s https://codecov.io/bash) -F controllers
+      - run: bash <(curl -s https://codecov.io/bash) -F models
+      - run: bash <(curl -s https://codecov.io/bash) -F helpers
+      - run: bash <(curl -s https://codecov.io/bash) -F jobs

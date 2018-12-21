@@ -10,23 +10,25 @@ require 'factory_bot_rails'
 require 'shoulda/matchers'
 
 require 'simplecov'
-SimpleCov.profiles.define 'codecov-test' do
-  load_profile 'rails' # simplecov defaults
+# SimpleCov.profiles.define 'codecov-test' do
+#   load_profile 'rails' # simplecov defaults
 
-  add_filter 'spec'
-  add_filter '/config/'
+#   add_filter 'spec'
+#   add_filter '/config/'
 
-  add_group 'Controllers', 'app/controllers'
-  add_group 'Models', 'app/models'
-  add_group 'Helpers', 'app/helpers'
-  add_group 'Libraries', 'lib'
-end
+#   add_group 'Controllers', 'app/controllers'
+#   add_group 'Models', 'app/models'
+#   add_group 'Helpers', 'app/helpers'
+#   add_group 'Libraries', 'lib'
+# end
 
-SimpleCov.start 'codecov-test' do
-  add_group "Models", "app/models"
-  add_group "Controllers", "app/controllers"
-  add_group "Multiple Files", ["app/models", "app/controllers"] # You can also pass in an array
-end
+# SimpleCov.start 'codecov-test' do
+#   add_group "Models", "app/models"
+#   add_group "Controllers", "app/controllers"
+#   add_group "Multiple Files", ["app/models", "app/controllers"] # You can also pass in an array
+# end
+
+SimpleCov.start
 
 if ENV['CI'] == 'true'
   require 'codecov'
