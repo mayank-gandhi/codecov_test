@@ -14,6 +14,9 @@ coverage:
       models:
         target: 100%
         flags: models
+      tests:
+        target: 100%
+        flags: tests
 
 flags:
   # filter the folder(s) you wish to measure by that flag
@@ -21,9 +24,13 @@ flags:
     # only include files in the backend folder
     paths:
       - app/controllers/
+      - app/models/
+      - spec/
   models:
     paths:
       - app/models/
+      - app/jobs/
+      - app/helpers/
   tests:
     paths:
       - spec/
