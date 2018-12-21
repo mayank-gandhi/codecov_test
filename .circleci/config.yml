@@ -68,3 +68,7 @@ jobs: # a collection of steps
 
       # Upload reports
       - run: bash <(curl -s https://codecov.io/bash)
+      - run: bash <(curl -s https://codecov.io/bash) -F controllers
+      - run: bash <(curl -s https://codecov.io/bash) -F models
+      - run: bash <(curl -s https://codecov.io/bash) -F jobs
+      - run: bash <(curl -s https://codecov.io/bash) -F helpers
