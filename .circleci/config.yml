@@ -40,24 +40,28 @@ jobs: # a collection of steps
           key: rails-demo-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
+      
+      # Create required dirs
+      - run:
+          name: Create required dirs
+          command: mkdir -p $TEST_REPORT_PATH
+
+      # Save artifacts
+      - type: store_test_results
+        path: circleci-test/reports
 
       - run:
           name: Wait for DB
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
-      - run:
-          name: Database setup
-          command: bin/rails db:schema:load --trace
+      # Database setup
+      - run: bundle exec rake db:create --all
+      - run: bin/rails db:schema:load
+      - run: bin/rails db:migrate
 
-      - run:
-          name: Run rspec in parallel
-          command: |
-            bundle exec rspec --profile 10 \
-                              --format RspecJunitFormatter \
-                              --out test_results/rspec.xml \
-                              --format progress \
-                              $(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)
-
+      # Run Rspecs
+      - run: CI=true bundle exec rspec spec --format progress -o $TEST_REPORT_PATH/rspec.xml
+  
       # Save test results for timing analysis
       - store_test_results: # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
           path: test_results
