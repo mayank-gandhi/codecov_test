@@ -7,6 +7,7 @@ jobs:
       TEST_REPORT_PATH: "circleci-test/reports"
     working_directory: ~/circleci-spi
     docker:
+      - image: circleci/ruby:2.5.1-node-browsers
       - image: circleci/postgres:9.4.18-alpine-postgis
     steps:
       - checkout
@@ -20,6 +21,7 @@ jobs:
       - type: cache-restore
         name: Restore bundle cache
         key: myapp-bundle-{{ checksum "Gemfile.lock" }}
+
 
       # Install gem dependencies
       - run:
@@ -53,7 +55,7 @@ jobs:
 
       # Run Rspecs
       - run: CI=true bundle exec rspec spec --format progress --format RspecJunitFormatter -o $TEST_REPORT_PATH/rspec.xml
-
+  
 workflows:
   version: 2
   build-deploy:
