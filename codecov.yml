@@ -1,16 +1,16 @@
 codecov:
-  branch: development
+  branch: feature1
 
 coverage:
   range: 80..100
   round: down
   precision: 5
   status:
-    project:
+    app:
       default: off
-      backend:
+      controllers:
         target: 90%
-        flags: backend
+        flags: controllers
       models:
         target: 100%
         flags: models
