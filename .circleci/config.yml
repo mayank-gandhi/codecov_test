@@ -5,7 +5,7 @@ jobs:
       RACK_ENV: test
       RAILS_ENV: test
       TEST_REPORT_PATH: "circleci-test/reports"
-    working_directory: ~/circleci-spi
+    working_directory: ~/circleci-codecov-test
     docker:
       - image: circleci/ruby:2.5.0-node-browsers
       - image: circleci/postgres:9.4.18-alpine-postgis
@@ -43,10 +43,6 @@ jobs:
       # Save artifacts
       - type: store_test_results
         path: circleci-test/reports
-
-      - run:
-          name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
 
       # Database setup
       - run: bin/rails db:create
