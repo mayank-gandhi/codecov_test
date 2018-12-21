@@ -7,7 +7,7 @@ jobs:
       TEST_REPORT_PATH: "circleci-test/reports"
     working_directory: ~/circleci-spi
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/ruby:2.5.0-node-browsers
       - image: circleci/postgres:9.4.18-alpine-postgis
     steps:
       - checkout
