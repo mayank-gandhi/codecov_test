@@ -79,30 +79,30 @@ describe AuthorsController, type: :controller do
     end
   end
 
-  # describe 'post create' do
-  #   context 'with valid data' do
-  #     it "redirect to author path" do
-  #       post :create, params: { author: attributes_for(:author)}
-  #       expect(response).to redirect_to(assigns(:author))
-  #     end
+  describe 'post create' do
+    context 'with valid data' do
+      it "redirect to author path" do
+        post :create, params: { author: attributes_for(:author)}
+        expect(response).to redirect_to(assigns(:author))
+      end
 
-  #     it "has a 302 status code" do
-  #       post :create, params: { author: attributes_for(:author)}
-  #       expect(response.status).to eq(302)
-  #     end
+      it "has a 302 status code" do
+        post :create, params: { author: attributes_for(:author)}
+        expect(response.status).to eq(302)
+      end
 
-  #     it "authors should return proper data" do
-  #       name = Faker::Name.name
-  #       post :create, params: { author: attributes_for(:author, name: name)}
-  #       expect(assigns(:author).name).to eq(name)
-  #     end
+      it "authors should return proper data" do
+        name = Faker::Name.name
+        post :create, params: { author: attributes_for(:author, name: name)}
+        expect(assigns(:author).name).to eq(name)
+      end
 
-  #     it "should change count by 1 if Author created" do
-  #       expect {
-  #         post :create, params: { author: attributes_for(:author)}
-  #       }.to change(Author,:count).by(1)
-  #     end
-  #   end
+      it "should change count by 1 if Author created" do
+        expect {
+          post :create, params: { author: attributes_for(:author)}
+        }.to change(Author,:count).by(1)
+      end
+    end
 
   #   context 'with invalid data' do
   #     it "should not change count" do
