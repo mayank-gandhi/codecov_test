@@ -30,3 +30,6 @@ flags:
   tests:
     paths:
       - spec/
+  controllers:
+    paths:
+      - app/controllers/
