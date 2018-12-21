@@ -22,15 +22,18 @@ flags:
   # filter the folder(s) you wish to measure by that flag
   backend:
     # only include files in the backend folder
+    joined: false
     paths:
       - app/controllers/
       - app/models/
       - spec/
   models:
+    joined: false
     paths:
       - app/models/
       - app/jobs/
       - app/helpers/
   tests:
+    joined: false
     paths:
       - spec/
