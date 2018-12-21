@@ -8,7 +8,7 @@ coverage:
   status:
     project:
       default: on
-      controllers:
+      backend:
         target: 90%
         flags: controllers
       models:
