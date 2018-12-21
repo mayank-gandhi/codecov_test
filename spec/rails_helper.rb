@@ -9,7 +9,7 @@ require 'rspec/rails'
 require 'factory_bot_rails'
 require 'shoulda/matchers'
 
-require 'simplecov'
+# require 'simplecov'
 # SimpleCov.profiles.define 'codecov-test' do
 #   load_profile 'rails' # simplecov defaults
 
@@ -28,12 +28,12 @@ require 'simplecov'
 #   add_group "Multiple Files", ["app/models", "app/controllers"] # You can also pass in an array
 # end
 
-SimpleCov.start
+# SimpleCov.start
 
-if ENV['CI'] == 'true'
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
-end
+# if ENV['CI'] == 'true'
+#   require 'codecov'
+#   SimpleCov.formatter = SimpleCov::Formatter::Codecov
+# end
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
