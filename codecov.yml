@@ -6,8 +6,8 @@ coverage:
   round: down
   precision: 5
   status:
-    app:
-      default: off
+    project:
+      default: on
       controllers:
         target: 90%
         flags: controllers
