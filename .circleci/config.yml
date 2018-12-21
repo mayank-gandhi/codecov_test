@@ -56,7 +56,7 @@ jobs: # a collection of steps
 
       - run:
           name: Wait for DB
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+          command: dockerize -wait tcp://localhost:5432 -timeout 10s
 
       # Database setup
       - run: bundle exec rake db:create --all
@@ -64,10 +64,10 @@ jobs: # a collection of steps
       - run: bin/rails db:migrate
 
       # Run Rspecs
-      - run: bundle exec rspec spec --format progress -o $TEST_REPORT_PATH/coverage.xml
+      - run: bundle exec rspec spec --format progress --format RspecJunitFormatter -o $TEST_REPORT_PATH/coverage.xml
 
       # Upload rspecs
-      - run: bash <(curl -s https://codecov.io/bash)        
+      - run: bash <(curl -s https://codecov.io/bash)
       
       # Run Rspecs then Upload reports for each flag
       # - run: bundle exec rspec spec/controllers --format progress -o $TEST_REPORT_PATH/coverage.xml
