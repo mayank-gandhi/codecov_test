@@ -25,14 +25,10 @@ flags:
     joined: false
     paths:
       - app/controllers/
-      - app/models/
-      - spec/
   models:
     joined: false
     paths:
       - app/models/
-      - app/jobs/
-      - app/helpers/
   tests:
     joined: false
     paths:
