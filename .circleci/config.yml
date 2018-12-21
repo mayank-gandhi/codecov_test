@@ -65,8 +65,13 @@ jobs: # a collection of steps
 
       # Run Rspecs
       - run: 
-        name: run and upload rspec reports 
-        command: bundle exec rspec spec --format progress -o $TEST_REPORT_PATH/coverage.xml|bash <(curl -s https://codecov.io/bash)        
+        name: run rspec 
+        command: bundle exec rspec spec --format progress -o $TEST_REPORT_PATH/coverage.xml
+
+      # Upload rspecs
+      - run: 
+        name: upload rspec reports 
+        command: bash <(curl -s https://codecov.io/bash)        
       
       # Run Rspecs then Upload reports for each flag
       # - run: bundle exec rspec spec/controllers --format progress -o $TEST_REPORT_PATH/coverage.xml
