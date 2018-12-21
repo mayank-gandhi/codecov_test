@@ -2,7 +2,7 @@ codecov:
   branch: development
 
 coverage:
-  range: 60..100
+  range: 80..100
   round: down
   precision: 5
   status:
@@ -22,14 +22,11 @@ flags:
   # filter the folder(s) you wish to measure by that flag
   backend:
     # only include files in the backend folder
-    joined: false
     paths:
       - app/controllers/
   models:
-    joined: false
     paths:
       - app/models/
   tests:
-    joined: false
     paths:
       - spec/
