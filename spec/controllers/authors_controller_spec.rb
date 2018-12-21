@@ -156,20 +156,20 @@ describe AuthorsController, type: :controller do
   #   end
   # end
 
-  # describe 'Delete @author' do
-  #   it 'should redirect to authors path' do
-  #     delete :destroy, params: { id: @authors.first.id }
-  #     expect(response).to redirect_to authors_path
-  #   end
+  describe 'Delete @author' do
+    it 'should redirect to authors path' do
+      delete :destroy, params: { id: @authors.first.id }
+      expect(response).to redirect_to authors_path
+    end
 
-  #   it 'has status code 302' do
-  #     delete :destroy, params: { id: @authors.first.id }
-  #     expect(response.status).to eq(302)
-  #   end
+    it 'has status code 302' do
+      delete :destroy, params: { id: @authors.first.id }
+      expect(response.status).to eq(302)
+    end
 
-  #   it 'should delete author' do
-  #     delete :destroy, params: { id: @authors.first.id }
-  #     expect{ @authors.first.reload }.to raise_error(ActiveRecord::RecordNotFound)
-  #   end
-  # end
+    it 'should delete author' do
+      delete :destroy, params: { id: @authors.first.id }
+      expect{ @authors.first.reload }.to raise_error(ActiveRecord::RecordNotFound)
+    end
+  end
 end
