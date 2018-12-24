@@ -28,7 +28,7 @@ require 'simplecov'
 #   add_group "Multiple Files", ["app/models", "app/controllers"] # You can also pass in an array
 # end
 
-SimpleCov.start
+SimpleCov.start 'rails'
 
 if ENV['CI'] == 'true'
   require 'codecov'

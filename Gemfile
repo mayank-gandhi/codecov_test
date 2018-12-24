@@ -51,6 +51,7 @@ group :development, :test do
   gem 'database_cleaner'  
   # Code coverage tools incentivize developers to write tests and increase coverage
   gem 'codecov', :require => false
+  gem 'rspec_junit_formatter'
 end
 
 group :development do
