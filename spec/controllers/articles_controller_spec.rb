@@ -80,29 +80,29 @@ describe ArticlesController, type: :controller do
   end
 
   describe 'post create' do
-  #   context 'with valid data' do
-  #     it "redirect to article path" do
-  #       post :create, params: { article: attributes_for(:article)}
-  #       expect(response).to redirect_to(assigns(:article))
-  #     end
+    context 'with valid data' do
+      it "redirect to article path" do
+        post :create, params: { article: attributes_for(:article)}
+        expect(response).to redirect_to(assigns(:article))
+      end
 
-  #     it "has a 302 status code" do
-  #       post :create, params: { article: attributes_for(:article)}
-  #       expect(response.status).to eq(302)
-  #     end
+      it "has a 302 status code" do
+        post :create, params: { article: attributes_for(:article)}
+        expect(response.status).to eq(302)
+      end
 
-  #     it "articles should return proper data" do
-  #       subject = Faker::Book.title
-  #       post :create, params: { article: attributes_for(:article, subject: subject)}
-  #       expect(assigns(:article).subject).to eq(subject)
-  #     end
+      it "articles should return proper data" do
+        subject = Faker::Book.title
+        post :create, params: { article: attributes_for(:article, subject: subject)}
+        expect(assigns(:article).subject).to eq(subject)
+      end
 
-  #     it "should change count by 1 if Article created" do
-  #       expect {
-  #         post :create, params: { article: attributes_for(:article)}
-  #       }.to change(Article,:count).by(1)
-  #     end
-  #   end
+      it "should change count by 1 if Article created" do
+        expect {
+          post :create, params: { article: attributes_for(:article)}
+        }.to change(Article,:count).by(1)
+      end
+    end
 
     context 'with invalid data' do
       it "should not change count" do
