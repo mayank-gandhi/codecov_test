@@ -25,7 +25,7 @@ flags:
   controllers_flag:
     joined: false
     paths:
-      - app/controllers/
+      - app/models/
   models_flag:
     joined: false
     paths:
