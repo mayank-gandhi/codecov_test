@@ -5,7 +5,6 @@ jobs: # a collection of steps
       RACK_ENV: test
       RAILS_ENV: test
       TEST_REPORT_PATH: "circleci-test/reports"
-    parallelism: 3 # run three instances of this job in parallel
     docker: # run the steps with Docker
       - image: circleci/ruby:2.5.0-node-browsers # ...with this image as the primary container; this is where all `steps` will run
         environment: # environment variables for primary container
@@ -18,7 +17,6 @@ jobs: # a collection of steps
       - image: circleci/postgres:9.5-alpine # database image
         environment: # environment variables for database
           POSTGRES_USER: postgres
-          POSTGRES_DB: codecov_test_test
           POSTGRES_PASSWORD: postgres
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
@@ -64,21 +62,8 @@ jobs: # a collection of steps
       - run: bin/rails db:migrate
 
       # Run Rspecs
-      - run: CI=true bundle exec rspec spec --format progress
-      - run: CI=true CODECOV_FLAG="controllers_flag" bundle exec rspec spec/controllers --format progress
-      - run: CI=true CODECOV_FLAG="models_flag" bundle exec rspec spec/models --format progress
-      - run: CI=true CODECOV_FLAG="helpers_flag" bundle exec rspec spec/helpers --format progress
-      - run: CI=true CODECOV_FLAG="jobs_flag" bundle exec rspec spec/jobs --format progress
-
-      # Upload rspecs
-      # - run: bash <(curl -s https://codecov.io/bash)
-      
-      # Run Rspecs then Upload reports for each flag
-      # - run: bundle exec rspec spec/controllers --format progress -o $TEST_REPORT_PATH/coverage.xml
-      # - run: bash <(curl -s https://codecov.io/bash) -F controllers
-      # - run: bundle exec rspec spec/models --format progress -o $TEST_REPORT_PATH/coverage.xml
-      # - run: bash <(curl -s https://codecov.io/bash) -F models
-      # - run: bundle exec rspec spec/helpers --format progress -o $TEST_REPORT_PATH/coverage.xml
-      # - run: bash <(curl -s https://codecov.io/bash) -F helpers
-      # - run: bundle exec rspec spec/jobs --format progress -o $TEST_REPORT_PATH/coverage.xml
-      # - run: bash <(curl -s https://codecov.io/bash) -F jobs
+      - run: CI=true bundle exec rspec spec
+      - run: CI=true CODECOV_FLAG="controllers_flag" bundle exec rspec spec/controllers
+      - run: CI=true CODECOV_FLAG="models_flag" bundle exec rspec spec/models
+      - run: CI=true CODECOV_FLAG="helpers_flag" bundle exec rspec spec/helpers
+      - run: CI=true CODECOV_FLAG="jobs_flag" bundle exec rspec spec/jobs
