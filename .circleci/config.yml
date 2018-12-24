@@ -62,7 +62,7 @@ jobs: # a collection of steps
       - run: bin/rails db:migrate
 
       # Run Rspecs
-      - run: CI=true CODECOV_FLAGS="controllersFlag, modelsFlag, helpersFlag, jobsFlag" bundle exec rspec spec
+      - run: CI=true CODECOV_FLAGS="controllersFlag,modelsFlag,helpersFlag,jobsFlag" bundle exec rspec spec
 
       # - run: CI=true CODECOV_FLAG="controllers_flag" bundle exec rspec spec/controllers
       # - run: CI=true CODECOV_FLAG="models_flag" bundle exec rspec spec/models
