@@ -23,23 +23,23 @@ coverage:
 
 flags:
   controllers_flag:
-    # joined: false
+    joined: false
     paths:
       - app/controllers/
   models_flag:
-    # joined: false
+    joined: false
     paths:
       - app/models/
   views_flag:
-    # joined: false
+    joined: false
     paths:
       - app/views/
   jobs_flag:
-    # joined: false
+    joined: false
     paths:
       - app/jobs/
   helpers_flag:
-    # joined: false
+    joined: false
     paths:
       - app/helpers/
   tests:
