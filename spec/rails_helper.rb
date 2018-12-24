@@ -28,12 +28,12 @@ require 'simplecov'
 #   add_group "Multiple Files", ["app/models", "app/controllers"] # You can also pass in an array
 # end
 
-SimpleCov.start
+SimpleCov.start 'rails'
 
-# if ENV['CI'] == 'true'
-#   require 'codecov'
-#   SimpleCov.formatter = SimpleCov::Formatter::Codecov
-# end
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
