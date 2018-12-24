@@ -10,35 +10,35 @@ coverage:
       default: on
       controllers:
         target: 70%
-        flags: controllers_flag
+        flags: controllersFlag
       models:
         target: 90%
-        flags: models_flag
+        flags: modelsFlag
       jobs:
         target: 100%
-        flags: jobs_flag
+        flags: jobsFlag
       helpers:
         target: 100%
-        flags: helpers_flag
+        flags: helpersFlag
 
 flags:
-  controllers_flag:
+  controllersFlag:
     joined: false
     paths:
       - app/controllers/
-  models_flag:
+  modelsFlag:
     joined: false
     paths:
       - app/models/
-  views_flag:
+  viewsFlag:
     joined: false
     paths:
       - app/views/
-  jobs_flag:
+  jobsFlag:
     joined: false
     paths:
       - app/jobs/
-  helpers_flag:
+  helpersFlag:
     joined: false
     paths:
       - app/helpers/
